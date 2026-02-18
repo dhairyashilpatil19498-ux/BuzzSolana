@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuzzSolana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background: radial-gradient(circle at top,#111 0%,#0a0a0f 70%);
+  color:white;
+  font-family:'Poppins', sans-serif;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:relative;
+  z-index:10;
+}
+
+.logo{
+  font-family:'Orbitron', sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:#ffd700;
+  letter-spacing:1px;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
+  font-size:14px;
+  transition:0.3s;
+}
+nav a:hover{color:#ffd700;}
+
+/* ================= HERO ================= */
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:110px 8%;
+  min-height:85vh;
+  position:relative;
+  z-index:10;
+}
+
+.hero-left{
+  max-width:520px;
+}
+
+.hero-left h1{
+  font-family:'Orbitron', sans-serif;
+  font-size:48px;
+}
+
+.neon{
+  color:#ffd700;
+}
+
+.hero-left p{
+  margin-top:18px;
+  color:#bbb;
+  font-size:16px;
+}
+
+.btn{
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  margin:12px 10px 0 0;
+  display:inline-block;
+  transition:0.3s;
+}
+.btn-primary{
+  background:#ffd700;
+  color:black;
+}
+.btn-secondary{
+  border:1px solid #ffd700;
+  color:#ffd700;
+}
+.btn-secondary:hover{
+  background:#ffd700;
+  color:black;
+}
+
+.countdown{
+  margin-top:25px;
+  font-size:15px;
+  color:#ffd700;
+}
+
+/* ===== HIGH QUALITY LOGO ===== */
+
+.hero-right img{
+  width:400px;
+  max-width:100%;
+  height:auto;
+  image-rendering:auto;
+  animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-18px);}
+  100%{transform:translateY(0);}
+}
+
+/* ================= ROADMAP ================= */
+
+.section{
+  padding:100px 8%;
+  text-align:center;
+  position:relative;
+  z-index:10;
+}
+
+.section h2{
+  font-family:'Orbitron', sans-serif;
+  font-size:34px;
+  margin-bottom:50px;
+}
+
+.roadmap-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.roadmap-card{
+  background:rgba(255,255,255,0.04);
+  padding:25px;
+  border-radius:12px;
+  text-align:left;
+  transition:0.3s;
+}
+
+.roadmap-card:hover{
+  background:rgba(255,255,255,0.08);
+  transform:translateY(-5px);
+}
+
+.roadmap-card h3{
+  color:#ffd700;
+  margin-bottom:12px;
+  font-size:18px;
+}
+
+.progress-bar{
+  height:6px;
+  background:#222;
+  border-radius:6px;
+  margin-top:15px;
+  overflow:hidden;
+}
+
+.progress{
+  height:100%;
+  background:#ffd700;
+}
+
+/* ================= BEES ================= */
+
+.bee-container{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.bee{
+  position:absolute;
+  width:40px;
+  animation: fly 20s linear infinite;
+}
+
+.wing-left{
+  transform-origin:right center;
+  animation: flapLeft 0.15s infinite alternate;
+}
+.wing-right{
+  transform-origin:left center;
+  animation: flapRight 0.15s infinite alternate;
+}
+
+@keyframes flapLeft{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(-35deg);}
+}
+@keyframes flapRight{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(35deg);}
+}
+
+@keyframes fly{
+  0%{transform:translateY(100vh);}
+  50%{transform:translateY(40vh) translateX(120px);}
+  100%{transform:translateY(-100vh) translateX(-120px);}
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  padding:30px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+  margin-top:60px;
+  position:relative;
+  z-index:10;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-right img{
+    width:280px;
+    margin-top:40px;
+  }
+  nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- BEES LEFT + RIGHT -->
+<div class="bee-container">
+
+  <!-- LEFT -->
+  <div class="bee" style="left:8%; animation-delay:0s;">
+    <svg viewBox="0 0 100 100">
+      <ellipse class="wing-left" cx="35" cy="40" rx="18" ry="12" fill="white" opacity="0.7"/>
+      <ellipse class="wing-right" cx="65" cy="40" rx="18" ry="12" fill="white" opacity="0.7"/>
+      <ellipse cx="50" cy="60" rx="18" ry="22" fill="#ffd700"/>
+      <rect x="35" y="55" width="30" height="5" fill="black"/>
+      <rect x="35" y="65" width="30" height="5" fill="black"/>
+      <circle cx="50" cy="35" r="10" fill="black"/>
+    </svg>
+  </div>
+
+  <div class="bee" style="left:20%; animation-delay:5s;"></div>
+
+  <!-- RIGHT -->
+  <div class="bee" style="right:8%; animation-delay:3s;"></div>
+  <div class="bee" style="right:20%; animation-delay:8s;"></div>
+
+</div>
+
+<header>
+  <div class="logo">$BUZZ</div>
+  <nav>
+    <a href="#">About</a>
+    <a href="#roadmap">Roadmap</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <h1>WELCOME TO <span class="neon">BUZZSOLANA</span></h1>
+    <p>The sweetest revolution on Solana. Hive powered. Built to moon 🚀</p>
+
+    <a href="#" class="btn btn-primary">Buy $BUZZ</a>
+
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <div class="hero-right">
+    <!-- USE HIGH RES PNG OR SVG -->
+    <img src="Buzz.png" alt="BuzzSolana Logo">
+  </div>
+
+</section>
+
+<section class="section" id="roadmap">
+  <h2>Roadmap</h2>
+
+  <div class="roadmap-grid">
+
+    <div class="roadmap-card">
+      <h3>🚀 Phase 1 — Launch</h3>
+      Website<br>Liquidity Lock<br>Marketing Campaign
+      <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>📈 Phase 2 — Growth</h3>
+      Influencers<br>Dex Listings<br>10K Holders
+      <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>🌍 Phase 3 — Expansion</h3>
+      CEX Listings<br>Partnerships<br>Utility Launch
+      <div class="progress-bar"><div class="progress" style="width:30%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 BuzzSolana ($BUZZ)
+</footer>
+
+<script>
+let countDownDate = new Date();
+countDownDate.setDate(countDownDate.getDate() + 30);
+
+setInterval(function(){
+  let now = new Date().getTime();
+  let distance = countDownDate - now;
+
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24))/(1000*60*60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60))/(1000*60));
+  let seconds = Math.floor((distance % (1000 * 60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+},1000);
+</script>
+
+</body>
+</html>
